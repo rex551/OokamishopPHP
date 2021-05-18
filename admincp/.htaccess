@@ -1,0 +1,37 @@
+RewriteEngine ON
+
+RewriteRule "TrangChu" "index.php"
+
+RewriteRule "Profile" "index.php?action=quanlytaikhoan&query=profile"
+
+RewriteRule "^Add/Accounts" "index.php?action=quanlytaikhoan&query=them"
+
+RewriteRule "^Edit/Accounts/([0-9]+)$" "?action=quanlytaikhoan&query=sua&iddangky=$1"
+
+RewriteRule "^Add/Sliders" "index.php?action=quanlyslider&query=them"
+
+RewriteRule "^Add/Banners" "index.php?action=quanlybanner&query=them"
+
+RewriteRule "^Edit/Banners/([0-9]+)$" "?action=quanlybanner&query=sua&idhinhanh=$1"
+
+RewriteRule "^Add/Collections" "index.php?action=quanlydanhmucsanpham&query=them"
+
+RewriteRule "^Edit/Collections/([0-9]+)$" "?action=quanlydanhmucsanpham&query=sua&iddanhmuc=$1"
+
+RewriteRule "^Add/SubCollections" "index.php?action=quanlydanhmucspcon&query=them"
+
+RewriteRule "^Edit/SubCollections/([0-9]+)$" "?action=danhmucspcon&query=sua&iddanhmuc=$1"
+
+RewriteRule "^Add/Products" "index.php?action=quanlysp&query=them"
+
+RewriteRule "^Edit/Products/([0-9]+)$" "?action=quanlysp&query=sua&idsanpham=$1"
+
+RewriteRule "Cart" "index.php?action=quanlydonhang&query=lietke"
+
+
+RewriteRule "^Add/Blogs" "index.php?action=quanlybaiviet&query=them"
+
+RewriteRule "^Add/Title/Blogs" "index.php?action=quanlydanhmucbaiviet&query=them"
+
+
+                        

@@ -1,0 +1,34 @@
+RewriteEngine ON
+
+RewriteRule "trangchu" "index.php"
+
+RewriteRule "pages/checkout" "pages/main/thanhtoan.php"
+
+RewriteRule "^collections/([0-9]+)$" "index.php?quanly=danhmucsanpham&id=$1"
+
+RewriteRule "^subcollections/([0-9]+)$" "index.php?quanly=danhmucspcon&id=$1"
+
+RewriteRule "^products/([0-9]+)$" "index.php?quanly=sanpham&id=$1"
+
+RewriteRule "^account/login" "index.php?quanly=dangnhap"
+
+RewriteRule "^account/register" "index.php?quanly=dangky"
+
+RewriteRule "^search" "index.php?quanly=timkiem"
+
+RewriteRule "^pages/payment" "index.php?quanly=camon"
+
+RewriteRule "^account/password" "index.php?quanly=thaydoimatkhau"
+
+RewriteRule "^web_mysqli/pages/main/thanhtoan" "web_mysqli/pages/main/thanhtoan.phpthanhtoan.php"
+
+RewriteRule "^collections/flash-sale" "index.php?quanly=flashsale"
+
+RewriteRule "^collections/san-pham-moi" "index.php?quanly=spmoi"
+
+RewriteRule "^account/logout" "index.php?dangxuat=1"
+
+RewriteRule "^pages/contact" "index.php?quanly=lienhe"
+
+RewriteRule "^cart" "index.php?quanly=giohang"
+

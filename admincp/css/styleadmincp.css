@@ -1,0 +1,57 @@
+*{
+    padding: 0;
+    margin: 0;
+}
+div.profile{
+    height: 530px;
+}
+div.userimg{
+    position: relative;
+    border: 1px solid #FFD131;
+    border-radius: 10px;
+    background: #FFD131;
+    height: 85.5vh;
+    display: flex;
+    justify-content: center;
+    align-items: flex-start;
+    
+}
+p.profilename{
+    color: #159753;
+    position: absolute;
+    top: 270px;
+    
+}
+p.profilechucnang{
+    color: #159753;
+    position: absolute;
+    top: 300px;
+    text-transform: uppercase;
+}
+ul.admincp_list {
+    padding: 0;
+    margin: 0;
+    list-style: none;
+}
+a{
+    color: red;
+}
+ul.admincp_list li {
+    float: left;
+    margin: 5px;
+}
+.clear{
+	clear: both;
+}
+h3.title_admin {
+    text-align: center;
+    font-size: 40px;
+    color: blue;
+}
+.wrapper{
+    width: 100%;
+    height: 100vh;
+}
+.choido {
+    display: none;
+}
