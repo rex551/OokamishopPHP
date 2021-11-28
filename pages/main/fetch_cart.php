@@ -1,53 +1,11 @@
-
 <?php  
- //action.php  
+
  session_start();  
- if(isset($_POST["product_id"]))  
- {  	     $i = 0;
-      $order_table = '';  
-      $message = '';  
-      if($_POST["action"] == "add")  
-      {  
-           if(isset($_SESSION["shopping_cart"]))  
-           {  
-                $is_available = 0;  
-                foreach($_SESSION["shopping_cart"] as $keys => $values)  
-                { 
-                     
-                     if($_SESSION["shopping_cart"][$keys]['product_id'] == $_POST["product_id"])  
-                     {  
-                          $is_available++;  
-                          
-                          $_SESSION["shopping_cart"][$keys]['product_quantity'] = $_SESSION["shopping_cart"][$keys]['product_quantity'] + $_POST["product_quantity"];  
-                     }  
-                }  
-                if($is_available < 1)  
-                {  
-                     $item_array = array(  
-                          'product_id'               =>     $_POST["product_id"],
-                          'product_image'               =>     $_POST["product_image"],   
-                          'product_name'               =>     $_POST["product_name"],
-                          'product_soluong'          =>     $_POST["product_soluong"],
-                          'product_price'               =>     $_POST["product_price"],  
-                          'product_quantity'          =>     $_POST["product_quantity"]  
-                     );  
-                     $_SESSION["shopping_cart"][] = $item_array;  
-                }  
-           }  
-           else  
-           {  
-                $item_array = array(  
-                     'product_id'               =>     $_POST["product_id"],  
-                     'product_name'               =>     $_POST["product_name"],
-                     'product_image'               =>     $_POST["product_image"],
-                     'product_soluong'          =>     $_POST["product_soluong"],
-                     'product_price'               =>     $_POST["product_price"],  
-                     'product_quantity'          =>     $_POST["product_quantity"]  
-                );  
-                $_SESSION["shopping_cart"][] = $item_array;  
-           }  
-      }
-      
+ if(isset($_POST["action"]))  
+ {  	 $i = 0;
+     $total_price = 0;
+     $total_item = 0;
+     $order_table = '';  
       if($_POST["action"] == "removecart")  
       {  
            foreach($_SESSION["shopping_cart"] as $keys => $values)  
@@ -57,14 +15,10 @@
                 {  
                     $i--;
                      unset($_SESSION["shopping_cart"][$keys]);  
-                     $message = '<label class="text-success">Product Removed</label>';  
                 }  
            }  
       
-           if($_POST["action"] == 'emptycart')
-           {
-                unset($_SESSION["shopping_cart"]);
-           }      }  
+     }
       if($_POST["action"] == "quantity_change")  
       {  
            foreach($_SESSION["shopping_cart"] as $keys => $values)  
@@ -89,7 +43,7 @@
            ';  
       if(!empty($_SESSION["shopping_cart"]))  
       {  
-           $total = 0;  
+
            foreach($_SESSION["shopping_cart"] as $keys => $values)  
            {  
                 $order_table .= ' 
@@ -109,8 +63,9 @@
                     </a> 
                     <hr>
                 ';  
-                $total = $total + ($values["product_quantity"] * $values["product_price"]);  
-           }  
+                $total_price = $total_price + ($values["product_quantity"] * $values["product_price"]);
+                $total_item = $total_item + 1;
+                 }  
            $order_table .= ' 
                <div class="row">
                     <div class="col-md-5">
@@ -130,7 +85,7 @@
                     <div class="card shadow">
                          <div class="card-header"><b>Thông Tin Đơn Hàng</b></div>
                          <div class="card-body">
-                              <span>Tổng tiền: </span> <span class="totalproduct"> '.number_format($total,0,',','.').'vnđ'.' </span>
+                              <span>Tổng tiền: </span> <span class="totalproduct"> '.number_format($total_price,0,',','.').'vnđ'.' </span>
                          </div>
                          <div class="card-footer">
                               <p>Phí vận chuyển sẽ được tính ở trang thanh toán.</p>
@@ -145,8 +100,8 @@
       $order_table .= '</div>';  
       $output = array(  
            'order_table'     =>     $order_table,  
-           'cart_item'          =>     count($_SESSION["shopping_cart"])  
-      );  
+           'total_item'		=>	$total_item
+          );  
       echo json_encode($output);  
  }  
  ?>

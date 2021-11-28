@@ -6,6 +6,7 @@ session_start();
 
 if(isset($_POST["action"]))
 {
+	
 	if($_POST["action"] == "add")
 	{
 		if(isset($_SESSION["shopping_cart"]))
@@ -17,6 +18,9 @@ if(isset($_POST["action"]))
 				{
 					$is_available++;
 					$_SESSION["shopping_cart"][$keys]['product_quantity'] = $_SESSION["shopping_cart"][$keys]['product_quantity'] + $_POST["product_quantity"];
+					if($_SESSION["shopping_cart"][$keys]['product_quantity'] > $_SESSION["shopping_cart"][$keys]['product_soluong']){
+						$_SESSION["shopping_cart"][$keys]['product_quantity'] = $_SESSION["shopping_cart"][$keys]['product_soluong'];
+					}
 				}
 			}
 			if($is_available == 0)

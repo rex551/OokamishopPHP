@@ -15,13 +15,18 @@
 	session_start();
  	include('../../admincp/config/config.php');
 	$thanhtien=0;
-	$thanhtoan=0;
 	$tongtien=0;
-
+	$thanhtien1=0;
+	$tongtien1=0;
 		if(isset($_POST['thanhtoan'])) {
 			$id_khachhang = $_SESSION['id_khachhang'];
 			$code_order = rand(0,9999);
-			$insert_cart = "INSERT INTO tbl_cart(id_khachhang,code_cart,cart_status) VALUES('".$id_khachhang."','".$code_order."',1)";
+			$today = date("Y-m-d H:i:s");
+			foreach($_SESSION["shopping_cart"] as  $keys1 => $values1){
+					$thanhtien1 = $values1["product_quantity"] * $values1["product_price"];
+					$tongtien1+=$thanhtien1;
+			}
+			$insert_cart = "INSERT INTO tbl_cart(id_khachhang,code_cart,cart_status,ngaydathang,total) VALUES('".$id_khachhang."','".$code_order."',1,'".$today."','".$tongtien1."')";
 			$cart_query = mysqli_query($mysqli,$insert_cart);
 			if($cart_query){
 					//them gio hang chi tiet

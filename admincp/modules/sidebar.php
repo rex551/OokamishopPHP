@@ -101,6 +101,11 @@
     <span>Đơn hàng</span></a>
 </li>
 
+<li class="nav-item">
+  <a class="nav-link" href="Revenue">
+    <i class="fas fa-sign-out-alt"></i>    
+    <span>Thống kê</span></a>
+</li>
 <!-- Divider -->
 <hr class="sidebar-divider d-none d-md-block">
 

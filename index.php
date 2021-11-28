@@ -4,6 +4,7 @@
 	<meta charset="UTF-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
 	<base href="http://localhost/web_mysqli/">
+	<script src="topBtn.js"></script>
 	<link rel="stylesheet" type="text/css" href="css/style.css">
 	<link rel="preconnect" href="https://fonts.gstatic.com">
 	<link href="https://fonts.googleapis.com/css2?family=Big+Shoulders+Stencil+Text:wght@500&family=Chakra+Petch:wght@600&family=KoHo:wght@500&family=Quicksand:wght@700&display=swap" rel="stylesheet">
@@ -25,6 +26,7 @@
 	<div id="fb-root"></div>
 	<script async defer crossorigin="anonymous" src="https://connect.facebook.net/vi_VN/sdk.js#xfbml=1&version=v10.0" nonce="YHMGReTW"></script>
 	<div class="wrapper">
+
 		<?php
 			session_start();
 			include("admincp/config/config.php");
@@ -33,6 +35,8 @@
 			include("pages/main.php");
 			include("pages/footer.php"); 
 		?>
+			<span class="btn btn-danger" id="backtoTOP"><i class="fas fa-arrow-up"></i></span>
+			<script src="js/backtoTOP.js"></script>
 	</div>
 </body>
 </html>

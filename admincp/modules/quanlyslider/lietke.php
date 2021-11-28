@@ -25,7 +25,7 @@
           <td><img src="modules/quanlyslider/uploads/<?php echo $row['image_path'] ?>" width="150px"></td>
           <td><?php echo $row['thutu'] ?></td>
           <td>
-            <a href="modules/quanlyslider/xuly.php?idhinhanh=<?php echo $row['id'] ?>"><i class="fas fa-trash-alt"></i></a>
+            <a onclick="return confirm('Bạn có chắc chắn xóa không ?')" href="modules/quanlyslider/xuly.php?idhinhanh=<?php echo $row['id'] ?>"><i class="fas fa-trash-alt"></i></a>
           </td>
         </tr>
         <?php

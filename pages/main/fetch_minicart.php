@@ -73,7 +73,6 @@ else
 $output .= '</table></div>';
 $data = array(
 	'cart_details'		=>	$output,
-	'total_price'		=>	'$' . number_format($total_price, 2),
 	'total_item'		=>	$total_item
 );	
 

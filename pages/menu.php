@@ -26,7 +26,7 @@
 				<ul class="navbar-nav ml-auto mainmenu">
 					<li class="nav-item"><a class="nav-link" href="trangchu" title="Trang chủ">Trang chủ</a></li>
 							<?php foreach($array as $value1=>$item1){ ?>
-									<li class="nav-item "><a class="nav-link " href="collections/<?php echo $item1['id_danhmuc']; ?>" title="<?php echo $item1['tendanhmuc']; ?>"><?php echo $item1['tendanhmuc']; ?> <i class="fa fa-angle-down" aria-hidden="true"></i></a>
+									<li class="nav-item hassub"><a class="nav-link hassublink" href="collections/<?php echo $item1['id_danhmuc']; ?>" title="<?php echo $item1['tendanhmuc']; ?>"><?php echo $item1['tendanhmuc']; ?> <i class="fa fa-angle-down angledown" aria-hidden="true"></i></a>
 										<ul class = "cap1 shadow-lg">
 										<?php
 											$query = "SELECT * FROM tbl_danhmuccon WHERE id_danhmuc = {$item1['id_danhmuc']} ORDER BY thutucon";
@@ -85,7 +85,7 @@
 						<span class="badge"></span></i>
 					</a>
 					<div style="position:absolute;" id="iconTwo" class="collapse mt-3 cart-infomation" data-parent="#icon">
-						<div class="card" style="background-color:white; z-index:100000000000000; width:450px;">
+						<div class="card cart-show">
 							<div class="cart-infor" >
 								<div class="card-header text-center">GIỎ HÀNG</div>
 								<div class="card-body">

@@ -38,7 +38,7 @@
       
     </td>
    	<td>
-   		<a href="modules/quanlytaikhoan/xuly.php?idtaikhoan=<?php echo $row['id_dangky'] ?>"><i class="fas fa-trash-alt"></i></a> | <a href="Edit/Accounts/<?php echo $row['id_dangky'] ?>"><i class="fas fa-edit"></i></a> 
+   		<a onclick="return confirm('Bạn có chắc chắn xóa không ?')" href="modules/quanlytaikhoan/xuly.php?idtaikhoan=<?php echo $row['id_dangky'] ?>"><i class="fas fa-trash-alt"></i></a> | <a href="Edit/Accounts/<?php echo $row['id_dangky'] ?>"><i class="fas fa-edit"></i></a> 
    	</td>
 
   </tr>

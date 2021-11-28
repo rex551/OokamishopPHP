@@ -52,6 +52,10 @@
 				}elseif($tam=='quanlytaikhoan' && $query=='sua'){
 					include("modules/quanlytaikhoan/sua.php");
 				}
+				elseif($tam=='thongke' && $query=='lietke'){
+					include("modules/thongke/thongke.php");
+				}
+
 				else{
 					include("modules/dashboard.php");
 				}

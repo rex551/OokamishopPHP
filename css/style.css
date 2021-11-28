@@ -3,6 +3,25 @@
     padding: 0;
     box-sizing: border-box;
 }
+#backtoTOP{
+    position: fixed;
+    bottom: 40px;
+    right: 40px;
+    font-size: 22px;
+    width: 50px;
+    height: 50px;
+    color: white;
+    border: none;
+    cursor: pointer;
+    display: none;
+    border-radius: 50%;
+  }
+
+#backtoTOP i{
+    margin-top: 30%;
+    display: flex;
+    justify-content: center;
+}
 .fonchukoho{
     font-family: 'KoHo', sans-serif;
 
@@ -43,11 +62,12 @@
     border-radius: 2px;
     border: 1px solid black;
     text-align: center;
-    width: 20px;
+    width: 32.3px;
 }
 .pro-price-view{
     position: absolute;
     right: 25px;
+
 }
 .pro-price-view{
     margin-top: 0px;
@@ -232,6 +252,14 @@ ul.cap1 > li >a:hover{
     -moz-transition: all 0.4s ease-in-out;
     -webkit-transition: all 0.4s ease-in-out; 
 }
+i.angledown{
+    transition: transform .3s ease-in-out;
+  }
+.mainmenu > li.hassub:hover > a.hassublink > i {
+    transform: rotate(180deg);
+    
+}
+
 div.mainicons  a.card-link{
     color: rgba(0,0,0,.5);
 }
@@ -239,12 +267,19 @@ div.mainicons  a.card-link:hover{
     color: rgba(0,0,0,.7);
     
 }
+div.cart-show{
+    background-color:white; 
+    z-index:100000000000000; 
+}
 @media screen and (min-width:1001px) {
     div.cart-infomation{
         left:-379px;
     }
     div.search-infomation{
         right:0px;
+    }
+    div.cart-show{
+        width:450px;
     }
     .mainmenu{
         display: flex;
@@ -269,7 +304,16 @@ div.mainicons  a.card-link:hover{
         left:-200px;
     }
 }
-
+@media only screen and (min-width: 460px) and (max-width: 1000px) {
+    div.cart-show{
+        width: 450px;
+    }
+}
+@media screen and (max-width: 459px){
+    div.cart-show{
+        max-width: fit-content;
+    }
+}
 @media only screen and (min-width: 450px) and (max-width: 1000px) {
     div.abvc{
         left:10%;

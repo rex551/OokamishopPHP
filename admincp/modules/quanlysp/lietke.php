@@ -45,7 +45,7 @@
       
     </td>
    	<td>
-   		<a href="modules/quanlysp/xuly.php?idsanpham=<?php echo $row['id_sanpham'] ?>"><i class="fas fa-trash-alt"></i></a> | <a href="Edit/Products/<?php echo $row['id_sanpham'] ?>"><i class="fas fa-edit"></i></a> 
+   		<a onclick="return confirm('Bạn có chắc chắn xóa không ?')" href="modules/quanlysp/xuly.php?idsanpham=<?php echo $row['id_sanpham'] ?>"><i class="fas fa-trash-alt"></i></a> | <a href="Edit/Products/<?php echo $row['id_sanpham'] ?>"><i class="fas fa-edit"></i></a> 
    	</td>
    
   </tr>

@@ -1,11 +1,22 @@
 <div class="footer fonchukoho">
     <div class="bg-light">   
         <div class="dknt p-3">
-            <span><i class="fas fa-envelope-open-text"></i> Đăng kí nhận tin </span>
-            <span class="dknt">|</span>
-            <input type="text" placeholder="Nhập email của bạn..." size="49" require>        
-            <button class="btn dangkybtn" type="button">ĐĂNG KÍ</button>
-            <span><i class="fas fa-phone-square-alt"></i>Hỗ trợ / Mua hàng: 090 6996 700</span>
+            <form action="form-inline">
+                <div class="row">
+                    <div class="col-md-7 ">
+                        <div class="input-group mb-3">
+                        <span class="pt-1 mr-2"><i class="fas fa-envelope-open-text"></i> Đăng kí nhận tin </span>
+                            <input type="email" class="form-control mb-2" placeholder="Nhập email của bạn..." required">
+                            <div class="input-group-append">
+                                <button type="button" class="btn dangkybtn mb-2">ĐĂNG KÍ</button>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-3 pt-1">
+                        <span><i class="fas fa-phone-square-alt"></i>Hỗ trợ / Mua hàng: 090 6708 847</span>
+                    </div>
+                </div>
+            </form>
         </div>
     </div>
     <div class="container-fluid mt-5 footer">
@@ -46,4 +57,3 @@
         alert("Cám ơn bạn đã đăng ký email theo dõi!");
     })
 </script>
-

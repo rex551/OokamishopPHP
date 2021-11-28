@@ -17,6 +17,8 @@
               <th>Tên khách hàng</th>
               <th>Email</th>
               <th>Số điện thoại</th>
+              <th>Ngày đặt hàng</th>
+              <th>Tổng tiền</th>
               <th>Tình trạng</th>
               <th>Quản lý</th>
             </tr>
@@ -33,6 +35,8 @@
     <td><?php echo $row['tenkhachhang'] ?></td>
     <td><?php echo $row['email'] ?></td>
     <td><?php echo $row['dienthoai'] ?></td>
+    <td><?php echo $row['ngaydathang'] ?></td>
+    <td><?php echo number_format($row['total'],0,',','.').'vnđ'; ?></td>
     <td>
     	<?php if($row['cart_status']==1){
     		echo '<a style="text-decoration: none;" href="modules/quanlydonhang/xuly.php?code='.$row['code_cart'].'">Đơn hàng mới</a>';

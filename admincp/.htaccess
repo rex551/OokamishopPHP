@@ -28,6 +28,7 @@ RewriteRule "^Edit/Products/([0-9]+)$" "?action=quanlysp&query=sua&idsanpham=$1"
 
 RewriteRule "Cart" "index.php?action=quanlydonhang&query=lietke"
 
+RewriteRule "Revenue" "index.php?action=thongke&query=lietke"
 
 RewriteRule "^Add/Blogs" "index.php?action=quanlybaiviet&query=them"
 

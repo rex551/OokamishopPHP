@@ -1,7 +1,7 @@
 $(document).ready(function(){
 	
 	load_cart_data();
-    
+    //load minicart
 	function load_cart_data()
 	{
 		$.ajax({
@@ -11,7 +11,6 @@ $(document).ready(function(){
 			success:function(data)
 			{
 				$('#cart_details').html(data.cart_details);
-				$('.total_price').text(data.total_price);
 				$('.badge').text(data.total_item);
 			}
 		});
@@ -21,6 +20,7 @@ $(document).ready(function(){
 		alert("Bạn phải đăng nhập để xem chi tiết giỏ hàng");
 	})
 
+	//them gio hang
 	$(document).on('click', '.add_to_cart', function(){
 		var product_id = $(this).attr("id");
 		var product_name = $('#name'+product_id+'').val();
@@ -47,7 +47,7 @@ $(document).ready(function(){
 			alert("Bạn chưa nhập số lượng cần mua vào sản phẩm");
 		}
 	});
-	
+	//xoa mini gio hang
 	$(document).on('click', '.delete', function(){
 		var product_id = $(this).attr("id");
 		var action = 'remove';
@@ -60,7 +60,6 @@ $(document).ready(function(){
 				success:function()
 				{
 					load_cart_data();
-					$('#cart-popover').popover('hide');
 					alert("Sản phẩm đã được xóa khỏi giỏ hàng");
 				}
 			})
@@ -70,22 +69,24 @@ $(document).ready(function(){
 			return false;
 		}
 	});
-	
+
+	//xoa mini gio hang thi xoa luon o gio hang
 	$(document).on('click', '.delete', function(){  
 		var product_id = $(this).attr("id");
 		var action = "remove";  
 		$.ajax({  
-			url:"./pages/main/actioncart.php",
+			url:"./pages/main/fetch_cart.php",
 			method:"POST",  
 			dataType:"json",  
 			data:{product_id:product_id, action:action},  
 			success:function(data){ 
 				$('#order_table').html(data.order_table);  
-				$('.badge').text(data.cart_item);  
+				$('.badge').text(data.total_item);
 			}  
 		});  
    	});  
 
+	//xoa het tat ca san pham o mini gio hang
 	$(document).on('click', '#clear_cart', function(){
 		var action = 'empty';
 		if(confirm("Bạn có chắc là bạn muốn xóa ?")){
@@ -96,29 +97,29 @@ $(document).ready(function(){
 				success:function()
 				{
 					load_cart_data();
-					$('#cart-popover').popover('hide');
 					alert("Giỏ hàng của bạn đã được xóa sạch");
 				}
 			});
 		}
 	});
-
 	
+
+	//xoa o gio hang
 	$(document).on('click', '.deletecart', function(){  
 		var product_id = $(this).attr("id");  
 		var action = "removecart";  
 		if(confirm("Bạn có chắc là muốn xóa sản phẩm này ?"))  
 		{  
 			 $.ajax({  
-				  url:"./pages/main/actioncart.php",
+				  url:"./pages/main/fetch_cart.php",
 				  method:"POST",  
 				  dataType:"json",  
 				  data:{product_id:product_id, action:action},  
 				  success:function(data){ 
 						alert("Sản phẩm đã được xóa khỏi giỏ hàng");
 						$('#order_table').html(data.order_table);  
-						$('.badge').text(data.cart_item);  
-				  }  
+						$('.badge').text(data.total_item);
+					}  
 			 });  
 		}  
 		else  
@@ -127,6 +128,22 @@ $(document).ready(function(){
 		}  
    });  
 
+    //xoa o gio hang thi gio hang mini cung bi xoa
+	$(document).on('click','.deletecart',function(){
+		var product_id = $(this).data("product_id"); 
+		var action = "removecart";  
+		$.ajax({  
+			url :"./pages/main/fetch_minicart.php",  
+			method:"POST",  
+			dataType:"json",  
+			data:{product_id:product_id, action:action},  
+			success:function(data){  
+				load_cart_data();
+			}  
+		});
+   })
+   
+   //thay doi so luong o gio hang
 	$(document).on('keyup', '.quantity', function(){  
 		var product_id = $(this).data("product_id");
 		var product_soluong = $('#soluong'+product_id).val();
@@ -142,7 +159,7 @@ $(document).ready(function(){
 		if(quantity != '')  
 		{  
 			 $.ajax({  
-				  url :"./pages/main/actioncart.php",  
+				  url :"./pages/main/fetch_cart.php",  
 				  method:"POST",  
 				  dataType:"json",  
 				  data:{product_id:product_id, quantity:quantity,product_soluong:product_soluong, action:action},  
@@ -153,31 +170,17 @@ $(document).ready(function(){
 		}
 
    }); 
-   
+   //gio hang thay doi thi soluong o  mini cung thay doi
    $(document).on('change','.quantity',function(){
 		var product_id = $(this).data("product_id"); 
 		var quantity = $('.quantity').val();
-		var price = $('price').val()
 		var action = "change_quantity";  
 		$.ajax({  
 			url :"./pages/main/fetch_minicart.php",  
 			method:"POST",  
 			dataType:"json",  
-			data:{product_id:product_id, quantity:quantity, price:price, action:action},  
+			data:{product_id:product_id, quantity:quantity, action:action},  
 			success:function(){  
-				load_cart_data();
-			}  
-		});
-   })
-   $(document).on('click','.deletecart',function(){
-		var product_id = $(this).data("product_id"); 
-		var action = "removecart";  
-		$.ajax({  
-			url :"./pages/main/fetch_minicart.php",  
-			method:"POST",  
-			dataType:"json",  
-			data:{product_id:product_id, action:action},  
-			success:function(data){  
 				load_cart_data();
 			}  
 		});
